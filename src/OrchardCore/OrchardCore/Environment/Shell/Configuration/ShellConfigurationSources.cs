@@ -21,7 +21,7 @@ namespace OrchardCore.Environment.Shell.Configuration
         public void AddSources(string tenant, IConfigurationBuilder builder)
         {
             builder
-                .AddJsonFile(Path.Combine(_container, tenant, "appsettings.json"), optional: true);
+                .AddJsonFile(Path.Combine(_container, tenant, "appsettings.json"), optional: true, reloadOnChange: false);
         }
 
         public void Save(string tenant, IDictionary<string, string> data)

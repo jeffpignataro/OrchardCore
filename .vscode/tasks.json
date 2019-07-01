@@ -1,48 +1,55 @@
 {
-	"version": "0.1.0",
-  	"linux": { "command": "sh", "args": ["-c"] },
-  	"osx": { "command": "sh", "args": ["-c"] },
-  	"windows": { "command": "cmd", "args": ["/C"] },
-	"isShellCommand": true,
-	"showOutput": "always",
-	"suppressTaskName": true,
-	"tasks": [
-		{
-			"taskName": "Dotnet Restore",
-			"args": [ "dotnet restore" ]
-		},
-		{
-			"taskName": "Dotnet Restore Force",
-			"args": [ "dotnet restore --no-cache" ]
-		},
-		{
-			"taskName": "Web App: Dotnet Build Debug",
-			"args": [ "dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web -c Debug" ],
-			"isBuildCommand": true,
-			"problemMatcher": "$msCompile"
-		},
-		{
-			"taskName": "Web App: Dotnet Rebuild Debug",
-			"args": [ "dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web --no-incremental -c Debug" ],
-			"problemMatcher": "$msCompile"
-		},
-		{
-			"taskName": "Web App: Dotnet Build Release",
-			"args": [ "dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web -c Release" ],
-			"problemMatcher": "$msCompile"
-		},
-		{
-			"taskName": "Web App: Dotnet Run",
-			"args": [ "cd ${workspaceRoot}/src/OrchardCore.Cms.Web & dotnet run" ]
-		},
-		{
-			"taskName": "Web App: Dotnet Publish",
-			"args": [ "dotnet publish ${workspaceRoot}/src/OrchardCore.Cms.Web --output ../publish" ]
-		},
-		{
-			"taskName": "Gulp Build",
-			"args": [ "gulp build" ],
-			"problemMatcher": "$gulp-tsc"
-		}
-	]
+  "version": "2.0.0",
+  "linux": {
+    "command": "sh",
+    "args": ["-c"]
+  },
+  "osx": {
+    "command": "sh",
+    "args": ["-c"]
+  },
+  "windows": {
+    "command": "cmd",
+    "args": ["/C"]
+  },
+  "type": "shell",
+  "reveal": "true",
+  "tasks": [{
+      "label": "Dotnet Restore",
+      "args": ["dotnet restore"],
+    },
+    {
+      "label": "Dotnet Restore Force",
+      "args": ["dotnet restore --no-cache"]
+    },
+    {
+      "label": "Web App: Dotnet Build Debug",
+      "args": ["dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web -c Debug"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Web App: Dotnet Rebuild Debug",
+      "args": ["dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web --no-incremental -c Debug"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Web App: Dotnet Build Release",
+      "args": ["dotnet build ${workspaceRoot}/src/OrchardCore.Cms.Web -c Release"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Web App: Dotnet Run",
+      "args": ["cd ${workspaceRoot}/src/OrchardCore.Cms.Web & dotnet run"]
+    },
+    {
+      "label": "Web App: Dotnet Publish",
+      "args": ["dotnet publish ${workspaceRoot}/src/OrchardCore.Cms.Web --output ../publish"]
+    },
+    {
+      "label": "Gulp Build",
+      "args": ["gulp build"],
+      "problemMatcher": "$gulp-tsc"
+    }
+  ]
 }

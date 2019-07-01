@@ -19,8 +19,8 @@ namespace OrchardCore.Environment.Shell.Configuration
         public void AddSources(IConfigurationBuilder builder)
         {
             builder
-                .AddJsonFile($"{_appsettings}.json", optional: true)
-                .AddJsonFile($"{_appsettings}.{_environment}.json", optional: true);
+                .AddJsonFile($"{_appsettings}.json", optional: true, reloadOnChange: false)
+                .AddJsonFile($"{_appsettings}.{_environment}.json", optional: true, reloadOnChange: false);
         }
     }
 }
